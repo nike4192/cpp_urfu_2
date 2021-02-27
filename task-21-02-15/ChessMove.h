@@ -1,7 +1,7 @@
 #ifndef CHESSMOVE_H
 #define CHESSMOVE_H
 
-#include "ChessPiece.h";
+#include "ChessPiece.h"
 
 enum CHESS_PLAYER { WHITE, BLACK };
 
