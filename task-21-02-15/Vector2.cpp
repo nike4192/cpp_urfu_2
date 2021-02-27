@@ -19,12 +19,12 @@ double Vector2::cross(Vector2& v)
 
 const Vector2 Vector2::normalize()
 {
-	return Vector2(*this) /= this->length();
+	return Vector2(*this) /= length();
 }
 
 double Vector2::length()
 {
-	return pow(x * x + y * y, 1 / 2);
+	return sqrt(x * x + y * y);
 }
 
 /* Arithmetic */
