@@ -15,15 +15,15 @@ public:
 
 	Complex conj() const; // conjugate
 
-	Complex& operator+=(Complex& c) const;
-	Complex& operator-=(Complex& c) const;
-	Complex& operator*=(Complex& c) const;
-	Complex& operator/=(Complex& c) const;
+	Complex& operator+=(const Complex& c);
+	Complex& operator-=(const Complex& c);
+	Complex& operator*=(const Complex& c);
+	Complex& operator/=(const Complex& c);
 
-	const Complex operator+(Complex& c);
-	const Complex operator-(Complex& c);
-	const Complex operator*(Complex& c);
-	const Complex operator/(Complex& c);
+	const Complex operator+(const Complex& c);
+	const Complex operator-(const Complex& c);
+	const Complex operator*(const Complex& c);
+	const Complex operator/(const Complex& c);
 
 };
 
