@@ -4,8 +4,8 @@
 class Complex
 {
 private:
-	double real;
-	double imag;
+	double real = 0;
+	double imag = 0;
 
 public:
 	Complex(double r, double i);
@@ -13,12 +13,12 @@ public:
 	double getReal() const;
 	double getImag() const;
 
-	Complex conj(); // conjugate
+	Complex conj() const; // conjugate
 
-	Complex& operator+=(Complex& c);
-	Complex& operator-=(Complex& c);
-	Complex& operator*=(Complex& c);
-	Complex& operator/=(Complex& c);
+	Complex& operator+=(Complex& c) const;
+	Complex& operator-=(Complex& c) const;
+	Complex& operator*=(Complex& c) const;
+	Complex& operator/=(Complex& c) const;
 
 	const Complex operator+(Complex& c);
 	const Complex operator-(Complex& c);
