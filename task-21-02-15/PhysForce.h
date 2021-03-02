@@ -1,13 +1,13 @@
-#pragma once
+#ifndef PHYSFORCE_H
+#define PHYSFORCE_H
 
 #include "PhysicalValue.h"
 
-template<typename T>
-class PhysForce : PhysicalValue<T>
+class PhysForce : public PhysicalValue
 {
-private:
-	PHYSICAL_UNITS unit = PHYSICAL_UNITS::N;
-
 public:
-	PhysForce(T value);
+
+	PhysForce(double _value) : PhysicalValue(PHYS_UNITS::N,_value) {};
 };
+
+#endif

@@ -5,31 +5,36 @@ class Vector2
 {
 public:
 
-	double x, y;
+	Vector2(double _x, double _y) : x(_x), y(_y) {};
 
-	Vector2(double _x, double _y);
+	double getX() const { return x; };
+	double getY() const { return y; };
 
-	double length();
+	double length() const;
 
-	double dot(Vector2& v); // dot product
-	double cross(Vector2& v); // cross product
-	const Vector2 normalize();
+	double dot(const Vector2& v) const; // dot product
+	double cross(const Vector2& v) const; // cross product
+	const Vector2 normalize() const;
 
 	/* Arithmetic */
 
-	Vector2& operator+=(Vector2& v);
-	Vector2& operator-=(Vector2& v);
+	Vector2& operator+=(const Vector2& v);
+	Vector2& operator-=(const Vector2& v);
 	Vector2& operator+=(double s);
 	Vector2& operator-=(double s);
 	Vector2& operator*=(double s);
 	Vector2& operator/=(double s);
 
-	const Vector2 operator+(Vector2& v);
-	const Vector2 operator-(Vector2& v);
-	const Vector2 operator+(double s);
-	const Vector2 operator-(double s);
-	const Vector2 operator*(double s);
-	const Vector2 operator/(double s);
+	Vector2 operator+(const Vector2& v);
+	Vector2 operator-(const Vector2& v);
+	Vector2 operator+(double s);
+	Vector2 operator-(double s);
+	Vector2 operator*(double s);
+	Vector2 operator/(double s);
+
+private:
+
+	double x, y;
 
 };
 
