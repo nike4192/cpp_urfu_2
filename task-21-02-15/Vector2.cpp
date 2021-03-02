@@ -1,35 +1,33 @@
 #include "Vector2.h"
 #include <cmath>
 
-Vector2::Vector2(double _x, double _y) : x(_x), y(_y) {}
-
-double Vector2::dot(Vector2& v)
+double Vector2::dot(const Vector2& v) const
 {
 	return x * v.x + y * v.y;
 }
-/* https://gamedev.ru/flame/forum/?id=121324
-	  | i j k |
-AxB = | x y 0 | = ( 0, 0, x*Y - y*X ) ~ x*Y - y*X
-	  | X Y 0 |
+/*
+https://threejs.org/docs/index.html#api/en/math/Vector2.cross
+Calculates the cross product of this vector and v. Note that a 'cross-product' in 2D is not well-defined.
+This function computes a geometric cross-product often used in 2D graphics
 */
-double Vector2::cross(Vector2& v)
+double Vector2::cross(const Vector2& v) const
 {
 	return x * v.y - y * v.x;
 }
 
-const Vector2 Vector2::normalize()
+const Vector2 Vector2::normalize() const
 {
 	return Vector2(*this) /= length();
 }
 
-double Vector2::length()
+double Vector2::length() const
 {
 	return sqrt(x * x + y * y);
 }
 
 /* Arithmetic */
 
-Vector2& Vector2::operator+=(Vector2& v)
+Vector2& Vector2::operator+=(const Vector2& v)
 {
 	x += v.x;
 	y += v.y;
@@ -37,7 +35,7 @@ Vector2& Vector2::operator+=(Vector2& v)
 	return *this;
 }
 
-Vector2& Vector2::operator-=(Vector2& v)
+Vector2& Vector2::operator-=(const Vector2& v)
 {
 	x -= v.x;
 	y -= v.y;
@@ -77,32 +75,32 @@ Vector2& Vector2::operator/=(double s)
 	return *this;
 }
 
-const Vector2 Vector2::operator+(Vector2& v)
+Vector2 Vector2::operator+(const Vector2& v)
 {
 	return Vector2(*this) += v;
 }
 
-const Vector2 Vector2::operator-(Vector2& v)
+Vector2 Vector2::operator-(const Vector2& v)
 {
 	return Vector2(*this) -= v;
 }
 
-const Vector2 Vector2::operator+(double s)
+Vector2 Vector2::operator+(double s)
 {
 	return Vector2(*this) += s;
 }
 
-const Vector2 Vector2::operator-(double s)
+Vector2 Vector2::operator-(double s)
 {
 	return Vector2(*this) -= s;
 }
 
-const Vector2 Vector2::operator*(double s)
+Vector2 Vector2::operator*(double s)
 {
 	return Vector2(*this) *= s;
 }
 
-const Vector2 Vector2::operator/(double s)
+Vector2 Vector2::operator/(double s)
 {
 	return Vector2(*this) /= s;
 }
