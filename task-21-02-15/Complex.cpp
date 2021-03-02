@@ -5,12 +5,12 @@ Complex::Complex(double r, double i) : real(r), imag(i) {}
 double Complex::getReal() const { return real; }
 double Complex::getImag() const { return imag; }
 
-Complex Complex::conj()
+Complex Complex::conj() const
 {
 	return Complex(real, -imag);
 }
 
-Complex& Complex::operator+=(Complex& c)
+Complex& Complex::operator+=(const Complex& c)
 {
 	real += c.real;
 	imag += c.imag;
@@ -18,7 +18,7 @@ Complex& Complex::operator+=(Complex& c)
 	return *this;
 }
 
-Complex& Complex::operator-=(Complex& c)
+Complex& Complex::operator-=(const Complex& c)
 {
 	real -= c.real;
 	imag -= c.imag;
@@ -26,7 +26,7 @@ Complex& Complex::operator-=(Complex& c)
 	return *this;
 }
 
-Complex& Complex::operator*=(Complex& c)
+Complex& Complex::operator*=(const Complex& c)
 {
 	double t_real = real * c.real - imag * c.imag;
 	double t_imag = real * c.imag + imag * c.real;
@@ -37,7 +37,7 @@ Complex& Complex::operator*=(Complex& c)
 	return *this;
 }
 
-Complex& Complex::operator/=(Complex& c)
+Complex& Complex::operator/=(const Complex& c)
 {
 	double denom = c.real * c.real + c.imag * c.imag;
 
@@ -50,22 +50,22 @@ Complex& Complex::operator/=(Complex& c)
 	return *this;
 }
 
-const Complex Complex::operator+(Complex& c)
+Complex Complex::operator+(const Complex& c)
 {
 	return Complex(*this) += c;
 }
 
-const Complex Complex::operator-(Complex& c)
+Complex Complex::operator-(const Complex& c)
 {
 	return Complex(*this) -= c;
 }
 
-const Complex Complex::operator*(Complex& c)
+Complex Complex::operator*(const Complex& c)
 {
 	return Complex(*this) *= c;
 }
 
-const Complex Complex::operator/(Complex& c)
+Complex Complex::operator/(const Complex& c)
 {
 	return Complex(*this) /= c;
 }
