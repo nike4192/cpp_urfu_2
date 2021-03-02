@@ -4,39 +4,36 @@
 
 #include "Complex.h" // 1.1
 #include "Vector4.h" // 1.2
+#include "Amperage.h" // 1.3
 #include "Vector2.h" // 2
-#include "ChessMoves.h" // 3
+#include "ChessBoard.h" // 3
+#include "PhysForce.h" // 5
+#include "PhysLength.h" // 5
 
-std::ostream& operator<< (std::ostream& os, const Complex& c) {
-
+std::ostream& operator<< (std::ostream& os, const Complex& c) // Complex
+{
 	os << "complex(" << c.getReal() << ", " << c.getImag() << ')';
 
 	return os;
 }
 
-std::ostream& operator<< (std::ostream& os, const Vector4& v) {
-
-	os << "vec4(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w << ')';
-
-	return os;
-}
-
-std::ostream& operator<< (std::ostream& os, const Vector2& v) {
-
-	os << "vec2(" << v.x << ", " << v.y << ')';
+std::ostream& operator<< (std::ostream& os, const Vector4& v) // Vector4
+{
+	os << "vec4(" << v.getX() << ", " << v.getY() << ", " << v.getZ() << ", " << v.getW() << ')';
 
 	return os;
 }
 
-std::ostream& operator<< (std::ostream& os, ChessMove& m) {
+std::ostream& operator<< (std::ostream& os, const Vector2& v) // Vector2
+{
+	os << "vec2(" << v.getX() << ", " << v.getY() << ')';
 
-	CHESS_PLAYER p = m.getPlayer();
+	return os;
+}
 
-	os
-		<< "chess_move("
-		<< (p == CHESS_PLAYER::WHITE ? "white" : p == CHESS_PLAYER::BLACK ? "black" : "undefined")
-		<< ", " << m.getX() << ", " << m.getY()
-		<< ")";
+std::ostream& operator<< (std::ostream& os, const PhysicalValue& pv) // PhysicalValue
+{
+	pv.print();
 
 	return os;
 }
@@ -46,6 +43,8 @@ void print(T ivalue)
 {
 	std::cout << ivalue << std::endl;
 }
+
+void printPieceExist(ChessBoard cb, int x, int y);
 
 int main()
 {
@@ -83,6 +82,18 @@ int main()
 
 	std::cout << std::endl; // DELIMITER
 
+	/* 1.3 Amperage */
+
+	Amperage a(3);
+
+	a.getValue();
+	a.getValue();
+	a.getValue();
+
+	std::cout << "Access count a: " << a.getAccessCounter() << std::endl;
+
+	std::cout << std::endl; // DELIMITER
+
 	/* 2 Vector2 */
 
 	Vector2 v3(1, 2);
@@ -97,24 +108,14 @@ int main()
 
 	/* 3 ChessMoves */
 
-	ChessMoves cm;
-	ChessPiece wcp(CHESS_PIECE::PAWN);
-	ChessPiece bcp(CHESS_PIECE::KNIGHT);
+	ChessBoard cb;
 
-	cm.push_back(ChessMove(CHESS_PLAYER::WHITE, wcp, 3, 1));
-	cm.push_back(ChessMove(CHESS_PLAYER::BLACK, bcp, 2, 1));
-	cm.push_back(ChessMove(CHESS_PLAYER::WHITE, wcp, 3, 2));
-	cm.push_back(ChessMove(CHESS_PLAYER::BLACK, bcp, 3, 2));
+	int x1 = 1, y1 = 1;
+	cb.setPieceAt(x1, y1, &ChessPiece());
+	printPieceExist(cb, x1, y1);
 
-	ChessMove* m;
-	
-	m = cm.lastMoveTo(3, 2);
-	if (m != nullptr) print(*m);
-
-	cm.pop_back();
-
-	m = cm.lastMoveTo(3, 2);
-	if (m != nullptr) print(*m);
+	cb.popPieceAt(x1, y1);
+	printPieceExist(cb, x1, y1);
 
 	std::cout << std::endl; // DELIMITER
 
@@ -136,6 +137,25 @@ int main()
 
 	std::cout << std::endl; // DELIMITER
 
+	/* 5 PhysicalValues */
+
+	PhysForce pf(40);
+	PhysLength pl(10);
+
+	std::cout << "N / m2 ~ " << pf / (pl * pl) << std::endl; // Pa = N / m2
+	std::cout << "N * m ~ " << pf * pl << std::endl; // Additionaly J = N * m
+	std::cout << "m * m ~ " << pl * pl << std::endl; // m^2
+	std::cout << "m * m * m ~ " << pl * pl * pl << std::endl; // m^3
+
 	return 0;
 
+}
+
+void printPieceExist(ChessBoard cb, int x, int y)
+{
+	ChessPiece* cptr = cb.getPieceAt(x, y);
+	if (cptr != nullptr)
+		std::cout << "Has chess piece at " << x << ":" << y << std::endl;
+	else
+		std::cout << "Hasn't chess piece at " << x << ":" << y << std::endl;
 }
