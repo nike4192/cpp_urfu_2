@@ -38,26 +38,6 @@ Vector4& Vector4::operator-=(const Vector4& v)
 	return *this;
 }
 
-Vector4& Vector4::operator+=(double s)
-{
-	x += s;
-	y += s;
-	z += s;
-	w += s;
-
-	return *this;
-}
-
-Vector4& Vector4::operator-=(double s)
-{
-	x -= s;
-	y -= s;
-	z -= s;
-	w -= s;
-
-	return *this;
-}
-
 Vector4& Vector4::operator*=(double s)
 {
 	x *= s;
@@ -78,32 +58,22 @@ Vector4& Vector4::operator/=(double s)
 	return *this;
 }
 
-Vector4 Vector4::operator+(const Vector4& v)
+Vector4 Vector4::operator+(const Vector4& v) const
 {
 	return Vector4(*this) += v;
 }
 
-Vector4 Vector4::operator-(const Vector4& v)
+Vector4 Vector4::operator-(const Vector4& v) const
 {
 	return Vector4(*this) -= v;
 }
 
-Vector4 Vector4::operator+(double s)
-{
-	return Vector4(*this) += s;
-}
-
-Vector4 Vector4::operator-(double s)
-{
-	return Vector4(*this) -= s;
-}
-
-Vector4 Vector4::operator*(double s)
+Vector4 Vector4::operator*(double s) const
 {
 	return Vector4(*this) *= s;
 }
 
-Vector4 Vector4::operator/(double s)
+Vector4 Vector4::operator/(double s) const
 {
 	return Vector4(*this) /= s;
 }
