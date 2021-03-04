@@ -1,6 +1,8 @@
 #ifndef Vector4_H
 #define Vector4_H
 
+/* 1.2 Класс 4-мерного вектора */
+
 class Vector4
 {
 public:
@@ -22,17 +24,13 @@ public:
 
 	Vector4& operator+=(const Vector4& v);
 	Vector4& operator-=(const Vector4& v);
-	Vector4& operator+=(double s);
-	Vector4& operator-=(double s);
 	Vector4& operator*=(double s);
 	Vector4& operator/=(double s);
 
-	Vector4 operator+(const Vector4& v);
-	Vector4 operator-(const Vector4& v);
-	Vector4 operator+(double s);
-	Vector4 operator-(double s);
-	Vector4 operator*(double s);
-	Vector4 operator/(double s);
+	Vector4 operator+(const Vector4& v) const;
+	Vector4 operator-(const Vector4& v) const;
+	Vector4 operator*(double s) const;
+	Vector4 operator/(double s) const;
 
 private:
 
