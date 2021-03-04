@@ -90,17 +90,17 @@ PhysicalValue& PhysicalValue::operator/=(const PhysicalValue& pv)
 	}
 }
 
-PhysicalValue PhysicalValue::operator+(const PhysicalValue& pv)
+PhysicalValue PhysicalValue::operator+(const PhysicalValue& pv) const
 {
 	return PhysicalValue(unit, value) += pv;
 }
 
-PhysicalValue PhysicalValue::operator-(const PhysicalValue& pv)
+PhysicalValue PhysicalValue::operator-(const PhysicalValue& pv) const
 {
 	return PhysicalValue(unit, value) -= pv;
 }
 
-PhysicalValue PhysicalValue::operator*(const PhysicalValue& pv)
+PhysicalValue PhysicalValue::operator*(const PhysicalValue& pv) const
 {
 	if (unit != pv.unit) {
 
@@ -129,7 +129,7 @@ PhysicalValue PhysicalValue::operator*(const PhysicalValue& pv)
 	}
 }
 
-PhysicalValue PhysicalValue::operator/(const PhysicalValue& pv)
+PhysicalValue PhysicalValue::operator/(const PhysicalValue& pv) const
 {
 	if (unit != pv.unit) {
 
