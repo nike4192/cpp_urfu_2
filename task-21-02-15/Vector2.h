@@ -1,6 +1,8 @@
 #ifndef Vector2_H
 #define Vector2_H
 
+/* 2 Класс 2-мерного вектора */
+
 class Vector2
 {
 public:
@@ -13,29 +15,24 @@ public:
 	double length() const;
 
 	double dot(const Vector2& v) const; // dot product
-	double cross(const Vector2& v) const; // cross product
+	double cross(const Vector2& v) const; // cross product (векторное произведение)
 	const Vector2 normalize() const;
 
 	/* Arithmetic */
 
 	Vector2& operator+=(const Vector2& v);
 	Vector2& operator-=(const Vector2& v);
-	Vector2& operator+=(double s);
-	Vector2& operator-=(double s);
 	Vector2& operator*=(double s);
 	Vector2& operator/=(double s);
 
-	Vector2 operator+(const Vector2& v);
-	Vector2 operator-(const Vector2& v);
-	Vector2 operator+(double s);
-	Vector2 operator-(double s);
-	Vector2 operator*(double s);
-	Vector2 operator/(double s);
+	Vector2 operator+(const Vector2& v) const;
+	Vector2 operator-(const Vector2& v) const;
+	Vector2 operator*(double s) const;
+	Vector2 operator/(double s) const;
 
 private:
 
 	double x, y;
-
 };
 
 #endif
