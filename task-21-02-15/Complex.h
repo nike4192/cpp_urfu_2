@@ -1,6 +1,8 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
+/* 1.1 Класс комплексного числа */
+
 class Complex
 {
 public:
@@ -10,7 +12,7 @@ public:
 	double getReal() const;
 	double getImag() const;
 
-	Complex conj() const; // conjugate
+	const Complex conj() const; // conjugate
 	
 	/* Arithmetic */
 
@@ -19,10 +21,10 @@ public:
 	Complex& operator*=(const Complex& c);
 	Complex& operator/=(const Complex& c);
 
-	Complex operator+(const Complex& c);
-	Complex operator-(const Complex& c);
-	Complex operator*(const Complex& c);
-	Complex operator/(const Complex& c);
+	Complex operator+(const Complex& c) const;
+	Complex operator-(const Complex& c) const;
+	Complex operator*(const Complex& c) const;
+	Complex operator/(const Complex& c) const;
 
 private:
 
