@@ -43,22 +43,6 @@ Vector2& Vector2::operator-=(const Vector2& v)
 	return *this;
 }
 
-Vector2& Vector2::operator+=(double s)
-{
-	x += s;
-	y += s;
-
-	return *this;
-}
-
-Vector2& Vector2::operator-=(double s)
-{
-	x -= s;
-	y -= s;
-
-	return *this;
-}
-
 Vector2& Vector2::operator*=(double s)
 {
 	x *= s;
@@ -75,32 +59,22 @@ Vector2& Vector2::operator/=(double s)
 	return *this;
 }
 
-Vector2 Vector2::operator+(const Vector2& v)
+Vector2 Vector2::operator+(const Vector2& v) const
 {
 	return Vector2(*this) += v;
 }
 
-Vector2 Vector2::operator-(const Vector2& v)
+Vector2 Vector2::operator-(const Vector2& v) const
 {
 	return Vector2(*this) -= v;
 }
 
-Vector2 Vector2::operator+(double s)
-{
-	return Vector2(*this) += s;
-}
-
-Vector2 Vector2::operator-(double s)
-{
-	return Vector2(*this) -= s;
-}
-
-Vector2 Vector2::operator*(double s)
+Vector2 Vector2::operator*(double s) const
 {
 	return Vector2(*this) *= s;
 }
 
-Vector2 Vector2::operator/(double s)
+Vector2 Vector2::operator/(double s) const
 {
 	return Vector2(*this) /= s;
 }
