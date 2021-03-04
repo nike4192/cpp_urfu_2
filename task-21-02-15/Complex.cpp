@@ -5,7 +5,7 @@ Complex::Complex(double r, double i) : real(r), imag(i) {}
 double Complex::getReal() const { return real; }
 double Complex::getImag() const { return imag; }
 
-Complex Complex::conj() const
+const Complex Complex::conj() const
 {
 	return Complex(real, -imag);
 }
@@ -50,22 +50,22 @@ Complex& Complex::operator/=(const Complex& c)
 	return *this;
 }
 
-Complex Complex::operator+(const Complex& c)
+Complex Complex::operator+(const Complex& c) const
 {
 	return Complex(*this) += c;
 }
 
-Complex Complex::operator-(const Complex& c)
+Complex Complex::operator-(const Complex& c) const
 {
 	return Complex(*this) -= c;
 }
 
-Complex Complex::operator*(const Complex& c)
+Complex Complex::operator*(const Complex& c) const
 {
 	return Complex(*this) *= c;
 }
 
-Complex Complex::operator/(const Complex& c)
+Complex Complex::operator/(const Complex& c) const
 {
 	return Complex(*this) /= c;
 }
