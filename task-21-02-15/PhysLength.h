@@ -3,6 +3,8 @@
 
 #include "PhysicalValue.h"
 
+/* 5.3 Величина длины в метрах */
+
 class PhysLength : public PhysicalValue
 {
 public:
