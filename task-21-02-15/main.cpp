@@ -73,7 +73,7 @@ int main()
 	std::cout << "v1: " << v1 << std::endl;
 	std::cout << "v2: " << v2 << std::endl;
 
-	std::cout << "v1 + v2: " << v1 + v2 << std::endl;
+	std::cout << "v1 + v2: " << v1 + v2 + v1 << std::endl;
 	std::cout << "v1 - v2: " << v1 - v2 << std::endl;
 	std::cout << "v1 * 2: " << v1 * 2 << std::endl;
 	std::cout << "v1 / 2: " << v1 / 2 << std::endl;
