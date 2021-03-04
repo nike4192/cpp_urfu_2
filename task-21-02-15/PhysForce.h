@@ -3,6 +3,8 @@
 
 #include "PhysicalValue.h"
 
+/* 5.1 Величина силы в Ньютонах */
+
 class PhysForce : public PhysicalValue
 {
 public:
