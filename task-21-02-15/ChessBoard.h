@@ -3,9 +3,11 @@
 
 #include <map>
 
-/*
-map, потому что
-у каждой ячейки можеть быть максимум одна фигура (ассоциативность)
+/* 3 Класс для хранения последовательностей ходов в шахматной партии */
+
+/* ~~Выберите подходящий контейнер~~
+ *	map, потому что
+ *	у каждой ячейки можеть быть максимум одна фигура (ассоциативность)
 */
 
 class ChessPiece {};
@@ -20,7 +22,7 @@ public:
 	ChessBoard();
 
 	void setPieceAt(int x, int y, ChessPiece* chessPiece);
-	ChessPiece* popPieceAt(int x, int y);
+	ChessPiece* popPieceAt(int x, int y); // не const потому что заменяет chessPiece на nullptr
 	ChessPiece* getPieceAt(int x, int y) const;
 
 private:
