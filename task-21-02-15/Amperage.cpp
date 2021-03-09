@@ -1,6 +1,6 @@
 #include "Amperage.h"
 
-double Amperage::getValue()
+double Amperage::getValue() const
 {
 	accessCounter++;
 
