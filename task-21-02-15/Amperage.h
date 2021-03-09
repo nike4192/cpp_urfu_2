@@ -9,14 +9,14 @@ public:
 
 	Amperage(double _value) : value(_value) {};
 
-	double getValue(); // не const потому что инкремирует accessCounter (учитывает количество чтений данных из экземпляра класса)
+	double getValue() const;
 	void setValue(double _value) { value = _value; };
 
 	int getAccessCounter() const { return accessCounter; };
 
 private:
 
-	int accessCounter = 0;
+	mutable int accessCounter = 0;
 	double value = 0;
 };
 
