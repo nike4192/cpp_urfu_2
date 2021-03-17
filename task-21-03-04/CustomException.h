@@ -3,7 +3,7 @@
 #include <exception>
 #include <string>
 
-/* Класс исключения определить свой, отнаследовавшись от std::exception */
+/* РљР»Р°СЃСЃ РёСЃРєР»СЋС‡РµРЅРёСЏ РѕРїСЂРµРґРµР»РёС‚СЊ СЃРІРѕР№, РѕС‚РЅР°СЃР»РµРґРѕРІР°РІС€РёСЃСЊ РѕС‚ std::exception */
 class CustomException : public std::exception
 {
 public:

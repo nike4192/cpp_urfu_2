@@ -81,7 +81,7 @@ PhysicalUnit& PhysicalUnit::operator*=(const PhysicalUnit& pu)
 		return *this;
 	}
 	else if (leftPup && rightLup && // Pa = N * m^-2
-		(getExponent() / 1 == pu.getExponent() / -2)) // кратные степеням 1 и -2 (Pa2 = N2 * m^-4)
+		(getExponent() / 1 == pu.getExponent() / -2)) // РєСЂР°С‚РЅС‹Рµ СЃС‚РµРїРµРЅСЏРј 1 Рё -2 (Pa2 = N2 * m^-4)
 	{
 		left = getScalarValue();
 		right = pu.getScalarValue();
@@ -119,7 +119,7 @@ PhysicalUnit& PhysicalUnit::operator/=(const PhysicalUnit& pu)
 		return *this;
 	}
 	else if (leftPup && rightLup && // Pa = N / m2
-		(getExponent() / 1 == pu.getExponent() / 2)) // кратные степеням 1 и 2 (Pa2 = N2 / m4)
+		(getExponent() / 1 == pu.getExponent() / 2)) // РєСЂР°С‚РЅС‹Рµ СЃС‚РµРїРµРЅСЏРј 1 Рё 2 (Pa2 = N2 / m4)
 	{
 		left = getScalarValue();
 		right = pu.getScalarValue();
@@ -242,7 +242,7 @@ const PhysicalUnit& PhysicalUnit::operator*(const PhysicalUnit& pu) const
 		return *result;
 	}
 	else if (leftPup && rightLup && // Pa = N * m^-2
-		(getExponent() / 1 == pu.getExponent() / -2)) // кратные степеням 1 и -2 (Pa2 = N2 * m^-4)
+		(getExponent() / 1 == pu.getExponent() / -2)) // РєСЂР°С‚РЅС‹Рµ СЃС‚РµРїРµРЅСЏРј 1 Рё -2 (Pa2 = N2 * m^-4)
 	{
 		left = getScalarValue();
 		right = pu.getScalarValue();
@@ -289,7 +289,7 @@ const PhysicalUnit& PhysicalUnit::operator/(const PhysicalUnit& pu) const
 		return *result;
 	}
 	else if (leftPup && rightLup && // Pa = N * m^-2
-		(getExponent() / 1 == pu.getExponent() / 2)) // кратные степеням 1 и -2 (Pa2 = N2 * m^-4)
+		(getExponent() / 1 == pu.getExponent() / 2)) // РєСЂР°С‚РЅС‹Рµ СЃС‚РµРїРµРЅСЏРј 1 Рё -2 (Pa2 = N2 * m^-4)
 	{
 		left = getScalarValue();
 		right = pu.getScalarValue();
