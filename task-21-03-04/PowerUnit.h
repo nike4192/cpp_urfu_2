@@ -22,4 +22,3 @@ private:
 	int exponent = 1;
 	std::string unit = "N";
 };
-

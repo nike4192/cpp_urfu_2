@@ -10,4 +10,3 @@ public:
 
 	CustomException(const std::string _message) : std::exception(_message.c_str()) {};
 };
-
